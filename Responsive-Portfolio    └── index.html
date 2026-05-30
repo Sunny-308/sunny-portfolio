@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Portfolio</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial;
+    background-color: #f0f0f0;
+    text-align:center;
+}
+
+.navbar{
+    background-color:black;
+    padding:15px;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    margin:10px;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    width:300px;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+img{
+    border-radius:50%;
+}
+
+button{
+    background:blue;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:10px;
+}
+
+button:hover{
+    background:green;
+}
+
+/* Responsive */
+
+@media(max-width:600px){
+
+    .container{
+        flex-direction:column;
+        align-items:center;
+    }
+
+}
+.dark{
+    background-color:black;
+    color:white;
+}
+
+.dark .card{
+    background-color:#222;
+    color:white;
+}
+#slider{
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+
+<a href="#">About</a>
+<a href="#">Projects</a>
+<a href="#">Skills</a>
+
+</div>
+
+<br>
+
+<img src="https://picsum.photos/200" width="200">
+
+<h1>Sunny</h1>
+<h2 id="typing"></h2>
+<p>BSc IT Student</p>
+<h2>Image Slider</h2>
+
+<img id="slider" src="https://picsum.photos/id/1015/400/250" width="400">
+
+<br><br>
+
+<button onclick="nextImage()">Next Image</button>
+<button onclick="darkMode()">Dark Mode</button>
+<button onclick="redTheme()">Red</button>
+
+<button onclick="greenTheme()">Green</button>
+
+<button onclick="blueTheme()">Blue</button>
+
+<button onclick="darkTheme()">Dark</button>
+<div class="container">
+
+<div class="card">
+<h2>About Me</h2>
+
+<p>
+Mera naam Sunny hai. Main web development sikh reha haan.
+</p>
+</div>
+
+<div class="card">
+<h2>Projects</h2>
+
+<ul>
+<li>Portfolio Website</li>
+<li>Digital Clock</li>
+<li>Calculator</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>Skills</h2>
+
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+</ul>
+
+</div>
+
+</div>
+
+<button>Contact Me</button>
+<script>
+  function darkMode(){
+
+    document.body.classList.toggle("dark");
+}
+function redTheme(){
+    document.body.style.backgroundColor = "red";
+}
+
+function greenTheme(){
+    document.body.style.backgroundColor = "green";
+}
+
+function blueTheme(){
+    document.body.style.backgroundColor = "blue";
+}
+
+function darkTheme(){
+    document.body.style.backgroundColor = "black";
+    document.body.style.color = "white";
+}
+
+let text = "Hello, I am Sunny. Welcome to my Portfolio!";
+let index = 0;
+
+function typeEffect(){
+
+    if(index < text.length){
+
+        document.getElementById("typing").innerHTML += text.charAt(index);
+
+        index++;
+    }
+
+}
+
+setInterval(typeEffect, 100);
+
+let images = [
+    "https://picsum.photos/id/1015/400/250",
+    "https://picsum.photos/id/1025/400/250",
+    "https://picsum.photos/id/1035/400/250"
+];
+
+let current = 0;
+
+function nextImage(){
+
+    current++;
+
+    if(current >= images.length){
+        current = 0;
+    }
+
+    document.getElementById("slider").src = images[current];
+}
+
+</script>
+</body>
+</html>
